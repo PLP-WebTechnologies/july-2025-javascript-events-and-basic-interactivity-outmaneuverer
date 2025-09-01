@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interactive Web Experience</h1>
+            <p>Explore the interactive features below!</p>
+        </header>
+
+        <!-- Interactive Color Palette Section -->
+        <section class="section">
+            <h2>🎨 Interactive Color Palette</h2>
+            <p>Click on colors to select them and see the magic happen!</p>
+            <div class="color-palette">
+                <div class="color-box" style="background: #ff6b6b;" data-color="#ff6b6b">Coral</div>
+                <div class="color-box" style="background: #4ecdc4;" data-color="#4ecdc4">Teal</div>
+                <div class="color-box" style="background: #45b7d1;" data-color="#45b7d1">Sky</div>
+                <div class="color-box" style="background: #96ceb4;" data-color="#96ceb4">Mint</div>
+                <div class="color-box" style="background: #ffeaa7;" data-color="#ffeaa7">Cream</div>
+                <div class="color-box" style="background: #dda0dd;" data-color="#dda0dd">Plum</div>
+            </div>
+            <div id="colorResult" style="padding: 15px; background: #f8f9fa; border-radius: 5px; margin-top: 15px;">
+                <strong>Selected Color:</strong> <span id="selectedColor">None selected</span>
+            </div>
+        </section>
+
+        <!-- Interactive Counter Section -->
+        <section class="section">
+            <h2>🔢 Interactive Counter</h2>
+            <div class="counter-container">
+                <div class="counter-display" id="counterDisplay">0</div>
+                <div class="counter-buttons">
+                    <button onclick="decrementCounter()">➖ Decrease</button>
+                    <button onclick="resetCounter()">🔄 Reset</button>
+                    <button onclick="incrementCounter()">➕ Increase</button>
+                    <button onclick="doubleCounter()">✖️ Double</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz Section -->
+        <section class="section">
+            <h2>🧠 Knowledge Quiz</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <h3>What does JavaScript primarily run on?</h3>
+                    <div class="options">
+                        <button class="option" onclick="checkAnswer(this, false)">Server only</button>
+                        <button class="option" onclick="checkAnswer(this, true)">Web browsers</button>
+                        <button class="option" onclick="checkAnswer(this, false)">Mobile apps only</button>
+                        <button class="option" onclick="checkAnswer(this, false)">Desktop applications only</button>
+                    </div>
+                </div>
+                <div id="quizResult" style="margin-top: 15px; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <!-- Task Manager Section -->
+        <section class="section">
+            <h2>📝 Interactive Task Manager</h2>
+            <div class="task-list">
+                <div class="task-input-container">
+                    <input type="text" id="taskInput" class="task-input" placeholder="Enter a new task...">
+                    <button onclick="addTask()">Add Task</button>
+                </div>
+                <div id="taskContainer"></div>
+                <div style="margin-top: 15px;">
+                    <strong>Tasks completed: </strong><span id="taskCounter">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section">
+            <h2>📧 Contact Form with Custom Validation</h2>
+            <div class="status-message" id="statusMessage"></div>
+            
+            <form class="form-container" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error" id="nameError">Please enter your full name (at least 2 words)</div>
+                    <div class="success" id="nameSuccess">✓ Name looks good!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                    <div class="success" id="emailSuccess">✓ Email format is correct!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                    <div class="error" id="phoneError">Please enter a valid phone number (10+ digits)</div>
+                    <div class="success" id="phoneSuccess">✓ Phone number looks good!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" name="age" min="1" max="120" required>
+                    <div class="error" id="ageError">Please enter a valid age between 1 and 120</div>
+                    <div class="success" id="ageSuccess">✓ Age is valid!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <select id="country" name="country" required>
+                        <option value="">Select your country</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="ke">Kenya</option>
+                        <option value="ng">Nigeria</option>
+                        <option value="za">South Africa</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="error" id="countryError">Please select your country</div>
+                    <div class="success" id="countrySuccess">✓ Country selected!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Tell us something interesting..."></textarea>
+                    <div class="error" id="messageError">Please enter a message (at least 10 characters)</div>
+                    <div class="success" id="messageSuccess">✓ Message looks great!</div>
+                </div>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+
+        <!-- Interactive Image Gallery Section -->
+        <section class="section">
+            <h2>🖼️ Interactive Image Gallery</h2>
+            <p>Click on any image to view it in full size!</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div class="image-container" onclick="viewImage('https://picsum.photos/400/300?random=1')">
+                    <img src="https://picsum.photos/200/150?random=1" alt="Random Image 1">
+                </div>
+                <div class="image-container" onclick="viewImage('https://picsum.photos/400/300?random=2')">
+                    <img src="https://picsum.photos/200/150?random=2" alt="Random Image 2">
+                </div>
+                <div class="image-container" onclick="viewImage('https://picsum.photos/400/300?random=3')">
+                    <img src="https://picsum.photos/200/150?random=3" alt="Random Image 3">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Image Viewing -->
+    <div id="imageModal">
+        <div class="modal-content">
+            <img id="modalImage">
+            <button onclick="closeModal()">✕</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
